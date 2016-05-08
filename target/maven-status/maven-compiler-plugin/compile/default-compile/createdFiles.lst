@@ -1,0 +1,5 @@
+com/myproject/domain/Shop.class
+com/myproject/repository/ShopRepository.class
+com/myproject/DemoApplication.class
+com/myproject/service/ShopService.class
+com/myproject/SampleController.class
