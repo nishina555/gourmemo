@@ -1,0 +1,29 @@
+body {
+    padding-top:70px;
+}
+#header {
+    background-color: #FF0000;
+}
+
+#main {
+    background-color: #008000;
+}
+#shop_contents {
+    background-color: #00FF00;
+}
+
+#side_bar {
+    background-color: #FFFF00;
+}
+
+#list_operation {
+    background-color: blueviolet;
+}
+
+.search {
+    background-color: yellowgreen;
+}
+
+#footer {
+    background-color: #0000FF;
+}

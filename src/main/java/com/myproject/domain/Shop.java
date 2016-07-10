@@ -22,4 +22,8 @@ public class Shop {
     private String name;
     @Column(nullable = false)
     private String note;
+/*    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = true, name = "id")
+    private User user;*/
+
 }
