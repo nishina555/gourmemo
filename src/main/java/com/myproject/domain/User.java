@@ -6,10 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by nishina on 2016/07/09.
@@ -28,8 +26,8 @@ public class User {
     private String name;
     @JsonIgnore
     private String encodedPassword;
-/*    @JsonIgnore
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
-    private List<Shop> shops;*/
+    private List<Shop> shops;
 
 }

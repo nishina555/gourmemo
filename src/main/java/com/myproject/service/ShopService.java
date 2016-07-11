@@ -1,6 +1,7 @@
 package com.myproject.service;
 
 import com.myproject.domain.Shop;
+import com.myproject.domain.User;
 import com.myproject.repository.ShopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,25 +26,21 @@ public class ShopService {
         return shopRepository.findAll();
     }
 
+    public List<Shop> findByUser(User user) {
+        return shopRepository.findByUser(user);
+    }
+
     public Shop findByName(String name) {
         return shopRepository.findByName(name);
     }
 
-/*    public Shop create_join(Shop shop, User user) {
+    public Shop create(Shop shop, User user) {
         shop.setUser(user);
-        return shopRepository.save(shop);
-    }*/
-
-    public Shop create(Shop shop) {
         return shopRepository.save(shop);
     }
 
-/*    public Shop update_join(Shop shop, User user) {
+    public Shop update(Shop shop, User user) {
         shop.setUser(user);
-        return shopRepository.save(shop);
-    }*/
-
-    public Shop update(Shop shop) {
         return shopRepository.save(shop);
     }
 

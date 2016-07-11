@@ -51,12 +51,8 @@ public class ShopController {
         Shop shop = new Shop();
         BeanUtils.copyProperties(form, shop);
 
-        //独立しているケース
-        shopService.update(shop);
-
-        //joinのケース
-/*        shop.setId(id);
-        shopService.update_join(shop, userDetails.getUser());*/
+        shop.setId(id);
+        shopService.update(shop, userDetails.getUser());
 
         return "redirect:/users";
     }
