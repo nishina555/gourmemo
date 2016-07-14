@@ -2,9 +2,32 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>お店新規登録</title>
+    <title>お店新規作成</title>
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css}"/>
 </head>
 <body>
-shop create
+<form th:action="@{/shops/save}" th:object="${shopForm}" method="post">
+    <dl>
+        <dt><label for="name">名前</label></dt>
+        <dd>
+            <input type="text" id="name" name="name" th:field="*{name}"/>
+        </dd>
+        <dt><label for="note">メモ</label></dt>
+        <dd>
+            <input type="text" id="note" name="note" th:field="*{note}"/>
+        </dd>
+    </dl>
+    <input type="submit" name="goToTop" value="戻る"/>
+    <input type="submit" value="新規作成"/>
+</form>
+
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+        th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"> </script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        th:src="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/3.3.6/js/bootstrap.min.js}"></script>
 </html>

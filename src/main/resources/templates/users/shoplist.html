@@ -39,12 +39,15 @@
             サイドバー
             <div id="list_operation">
                 <p>
-                    <button class="btn btn-default">新規作成</button>
-                    <button class="btn btn-default">まとめて削除</button>
+                    <input class="btn btn-default" type="button" value="新規作成"
+                           onclick="location.href='/shops/create.html'" th:href="@{/shops/create}"/>
+                <form th:action="@{/shops/all_delete}" method="get">
+                    <input class="btn btn-default" type="submit" name="goToAllDelete" value="まとめて削除"/>
+                </form>
                 </p>
             </div>
             <div class="search">
-                <form action="#" method="post">
+                <form th:action="@{/users/search}" method="get">
                     <div class="form-group">
                         <label>タグ</label>
                         <input type="text" name="tag" class="form-control" placeholder="例.デート向き"/>
@@ -87,11 +90,11 @@
                         <div th:text="${shop.note}">安い</div>
                         <div style="display:inline-flex">
                             <form th:action="@{/shops/edit}" method="get">
-                                <input class="btn btn-default" type="submit" name="form" value="おきにいり"/>
+                                <input class="btn btn-default" type="submit" name="form" value="編集"/>
                                 <input class="btn btn-default" type="hidden" name="id" th:value="${shop.id}"/>
                             </form>
                             <form th:action="@{/shops/delete}" method="post">
-                                <input class="btn btn-default" type="submit" value="おきにいり"/>
+                                <input class="btn btn-default" type="submit" value="削除"/>
                                 <input class="btn btn-default" type="hidden" name="id" th:value="${shop.id}"/>
                             </form>
                         </div>

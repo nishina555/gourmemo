@@ -50,10 +50,10 @@
 			<artifactId>lombok</artifactId>
 			<version>1.16.6</version>
 		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.16.6</version>
+		<dependency><!-- ロギング -->
+			<groupId>org.lazyluke</groupId>
+			<artifactId>log4jdbc-remix</artifactId>
+			<version>0.2.7</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

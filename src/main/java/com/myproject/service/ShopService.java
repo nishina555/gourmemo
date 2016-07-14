@@ -44,7 +44,16 @@ public class ShopService {
         return shopRepository.save(shop);
     }
 
+    public void delete(Integer id) {
+        shopRepository.delete(id);
+
+    }
+
     public void deleteByName(String name) {
         shopRepository.deleteByName(name);
+    }
+
+    public List<Shop> findByNoteLikeAndUser(String note, User user){
+        return shopRepository.findByNoteLikeAndUser(note, user);
     }
 }

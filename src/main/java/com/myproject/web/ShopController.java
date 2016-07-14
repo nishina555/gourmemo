@@ -28,7 +28,6 @@ public class ShopController {
         return new ShopForm();
     }
 
-    //create メソッド
 
     @RequestMapping(value = "edit", params = "form", method = RequestMethod.GET)
     String editForm(@RequestParam Integer id, ShopForm form) {
@@ -38,8 +37,11 @@ public class ShopController {
     }
 
     @RequestMapping(value = "delete")
-    String delete() {
-        return "shops/delete";
+    String delete(@RequestParam Integer id) {
+        shopService.delete(id);
+        //confirm欲しい
+
+        return "redirect:/users";
     }
 
     //編集をPOSTして更新するメソッド
@@ -50,10 +52,25 @@ public class ShopController {
         }
         Shop shop = new Shop();
         BeanUtils.copyProperties(form, shop);
-
         shop.setId(id);
         shopService.update(shop, userDetails.getUser());
+        return "redirect:/users";
+    }
 
+    @RequestMapping(value="create", method=RequestMethod.GET)
+    String create() {
+        return "/shops/create";
+    }
+
+    //編集をPOSTして新規作成するメソッド
+    @RequestMapping(value = "save", method = RequestMethod.POST)
+    String save(@Validated ShopForm form, BindingResult result, @AuthenticationPrincipal LoginUserDetails userDetails) {
+        if (result.hasErrors()) {
+            return "shops/create";
+        }
+        Shop shop = new Shop();
+        BeanUtils.copyProperties(form, shop);
+        shopService.create(shop, userDetails.getUser());
         return "redirect:/users";
     }
 

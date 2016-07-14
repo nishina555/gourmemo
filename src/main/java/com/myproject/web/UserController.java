@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -30,7 +31,19 @@ public class UserController {
         User user = userDetails.getUser();
         List<Shop> shops = shopService.findByUser(user);
         model.addAttribute("shops", shops);
+        System.out.println("debugdebugdebug");
 /*        shopService.findAll().forEach(System.out::println);*/
+        return "users/shoplist";
+    }
+
+    //検索
+    @RequestMapping(value = "search", method = RequestMethod.GET)
+    String search(Model model, @RequestParam String tag, String free_word, @AuthenticationPrincipal LoginUserDetails userDetails) {
+        User user = userDetails.getUser();
+        List<Shop> shops = shopService.findByNoteLikeAndUser(free_word, user);
+        System.out.println(shops);
+        model.addAttribute("shops", shops);
+
         return "users/shoplist";
     }
 

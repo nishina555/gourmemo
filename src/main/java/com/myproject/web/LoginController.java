@@ -1,5 +1,6 @@
 package com.myproject.web;
 
+import com.myproject.domain.User;
 import com.myproject.service.ShopService;
 import com.myproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ public class LoginController {
 
     @RequestMapping("loginForm")
     String loginForm() {
-/*        User created_user = userService.findOne(1);
-        System.out.println(created_user);*/
+        User created_user = userService.findOne(1);
+        System.out.println(created_user);
         return "loginForm";
     }
 }
